@@ -116,25 +116,10 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
             return
         }
         
-        // Get original image width/height
-        let imgWidth = capturedImage.size.width
-        let imgHeight = capturedImage.size.height
+        self.imageToSave = capturedImage
+        print(capturedImage)
         
-        // Get origin of cropped image
-        let imgOrigin = CGPoint(x: 0, y: 0)
-        
-        // Get size of cropped iamge
-        let imgSize = CGSize(width: imgWidth/1.5, height: imgWidth/1.5)
-
-        // Check if image could be cropped successfully
-        guard let imageRef = capturedImage.cgImage?.cropping(to: CGRect(origin: imgOrigin, size: imgSize)) else {
-            print("Fail to crop image")
-            return
-        }
-        
-        // Convert cropped image ref to UIImage
-        self.imageToSave = UIImage(cgImage: imageRef, scale: 1.0, orientation: .down)
-        UIImageWriteToSavedPhotosAlbum(imageToSave!, nil, nil, nil)
+        UIImageWriteToSavedPhotosAlbum(capturedImage, nil, nil, nil)
     }
     
 }

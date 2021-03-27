@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F444E5BB260FBBE0003B0C3F /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E5BA260FBBE0003B0C3F /* CameraModel.swift */; };
 		F444E5BF260FBC83003B0C3F /* CameraLiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E5BE260FBC83003B0C3F /* CameraLiveView.swift */; };
+		F444E5C7260FEED1003B0C3F /* UIImage Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E5C6260FEED1003B0C3F /* UIImage Extension.swift */; };
 		F4FA34EA260F97C900D3F475 /* Snap_GiveApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA34E9260F97C900D3F475 /* Snap_GiveApp.swift */; };
 		F4FA34EC260F97C900D3F475 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA34EB260F97C900D3F475 /* MainView.swift */; };
 		F4FA34EE260F97CB00D3F475 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4FA34ED260F97CB00D3F475 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		F444E5BA260FBBE0003B0C3F /* CameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
 		F444E5BE260FBC83003B0C3F /* CameraLiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraLiveView.swift; sourceTree = "<group>"; };
+		F444E5C6260FEED1003B0C3F /* UIImage Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage Extension.swift"; sourceTree = "<group>"; };
 		F4FA34E6260F97C900D3F475 /* Snap&Give.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Snap&Give.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4FA34E9260F97C900D3F475 /* Snap_GiveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snap_GiveApp.swift; sourceTree = "<group>"; };
 		F4FA34EB260F97C900D3F475 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 		F4FA3504260F9BE900D3F475 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				F444E5C6260FEED1003B0C3F /* UIImage Extension.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F444E5C7260FEED1003B0C3F /* UIImage Extension.swift in Sources */,
 				F4FA34FA260F980C00D3F475 /* Food101.mlmodel in Sources */,
 				F4FA350E260FA3AD00D3F475 /* CameraView.swift in Sources */,
 				F4FA3506260F9E3B00D3F475 /* DonateView.swift in Sources */,
