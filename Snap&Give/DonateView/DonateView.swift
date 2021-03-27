@@ -4,7 +4,11 @@ struct DonateView: View {
     
     var body: some View {
         
-        Text("DonateView")
+        NavigationView {
+            Text("DonateView")
+                .navigationTitle("Food Banks")
+        }
+
         
     }
 }

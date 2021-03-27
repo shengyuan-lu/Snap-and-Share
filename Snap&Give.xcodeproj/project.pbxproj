@@ -15,6 +15,9 @@
 		F4FA3501260F9B6900D3F475 /* SnapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA3500260F9B6900D3F475 /* SnapView.swift */; };
 		F4FA3506260F9E3B00D3F475 /* DonateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA3505260F9E3B00D3F475 /* DonateView.swift */; };
 		F4FA3509260F9FC500D3F475 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA3508260F9FC500D3F475 /* NewsView.swift */; };
+		F4FA350E260FA3AD00D3F475 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA350D260FA3AD00D3F475 /* CameraView.swift */; };
+		F4FA3511260FA6FB00D3F475 /* CameraViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA3510260FA6FB00D3F475 /* CameraViewProtocol.swift */; };
+		F4FA3515260FA73400D3F475 /* CameraViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA3514260FA73400D3F475 /* CameraViewState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		F4FA3500260F9B6900D3F475 /* SnapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapView.swift; sourceTree = "<group>"; };
 		F4FA3505260F9E3B00D3F475 /* DonateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateView.swift; sourceTree = "<group>"; };
 		F4FA3508260F9FC500D3F475 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
+		F4FA350D260FA3AD00D3F475 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		F4FA3510260FA6FB00D3F475 /* CameraViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewProtocol.swift; sourceTree = "<group>"; };
+		F4FA3514260FA73400D3F475 /* CameraViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +92,9 @@
 			isa = PBXGroup;
 			children = (
 				F4FA3500260F9B6900D3F475 /* SnapView.swift */,
+				F4FA350D260FA3AD00D3F475 /* CameraView.swift */,
+				F4FA3510260FA6FB00D3F475 /* CameraViewProtocol.swift */,
+				F4FA3514260FA73400D3F475 /* CameraViewState.swift */,
 			);
 			path = SnapView;
 			sourceTree = "<group>";
@@ -183,6 +192,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4FA34FA260F980C00D3F475 /* Food101.mlmodel in Sources */,
+				F4FA350E260FA3AD00D3F475 /* CameraView.swift in Sources */,
+				F4FA3511260FA6FB00D3F475 /* CameraViewProtocol.swift in Sources */,
+				F4FA3515260FA73400D3F475 /* CameraViewState.swift in Sources */,
 				F4FA3506260F9E3B00D3F475 /* DonateView.swift in Sources */,
 				F4FA34EC260F97C900D3F475 /* MainView.swift in Sources */,
 				F4FA3509260F9FC500D3F475 /* NewsView.swift in Sources */,

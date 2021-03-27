@@ -22,6 +22,8 @@ struct MainView: View {
                 .tabItem {
                     Image(systemName: "newspaper.fill")
                 }
+            
+            
         }
         
     }

@@ -2,9 +2,12 @@ import SwiftUI
 
 struct SnapView: View {
     
-    
     var body: some View {
-        Text("SnapView")
+        
+        NavigationView {
+            CameraView(cameraType: .builtInWideAngleCamera, cameraPosition: .back)
+                .navigationTitle("Snap&Give")
+        }
     }
     
     
