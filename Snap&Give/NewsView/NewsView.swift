@@ -4,7 +4,7 @@ struct NewsView: View {
     
     var body: some View {
         NavigationView {
-            Text("News View")
+            Text("NewsView")
                 .navigationTitle("Hunger News")
         }
     }

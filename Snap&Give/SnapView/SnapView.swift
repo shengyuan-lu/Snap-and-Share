@@ -5,8 +5,8 @@ struct SnapView: View {
     var body: some View {
         
         NavigationView {
-            CameraView(cameraType: .builtInWideAngleCamera, cameraPosition: .back)
-                .navigationTitle("Snap&Give")
+           CameraView()
+            .navigationTitle("Snap&Give")
         }
     }
     

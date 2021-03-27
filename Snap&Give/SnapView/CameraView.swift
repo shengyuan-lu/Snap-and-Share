@@ -2,197 +2,109 @@ import SwiftUI
 import UIKit
 import AVFoundation
 
-public struct CameraView: View {
-    private var delegate: CameraViewDelegate?
-    private var cameraType: AVCaptureDevice.DeviceType
-    private var cameraPosition: AVCaptureDevice.Position
-    private var preview: PreviewHolder
+struct CameraView: View {
     
-    @ObservedObject private var viewModel: CameraViewModel
+    @StateObject var cameraModel = CameraModel()
     
-    public init(delegate: CameraViewDelegate? = nil, cameraType: AVCaptureDevice.DeviceType = .builtInWideAngleCamera, cameraPosition: AVCaptureDevice.Position = .back) {
-        self.delegate = delegate
-        self.cameraType = cameraType
-        self.cameraPosition = cameraPosition
-        self.preview = PreviewHolder(delegate: delegate, cameraType: cameraType, cameraPosition: cameraPosition)
+    var body: some View{
         
-        self.viewModel = CameraViewModel(preview: self.preview)
-    }
-    
-    public var body: some View {
-        preview
-    }
-    
-    public func getViewModel() -> CameraViewModel {
-        return self.viewModel
-    }
-}
-
-extension CameraView {
-    public class CameraViewModel : NSObject, ObservableObject {
-        @Published var capturedPhoto: UIImage? = nil
-        
-        private var preview : PreviewHolder
-        
-        fileprivate init(preview : PreviewHolder) {
-            self.preview = preview
-        }
-        
-        public func capturePhoto() {
-            preview.getView().capturePhoto()
-        }
-    }
-}
-
-enum PhotoParseError : Error {
-    case error(Error)
-    case takeRetainValueFailed
-}
-
-private struct PreviewHolder: UIViewRepresentable {
-    private var delegate: CameraViewDelegate?
-    private var cameraType: AVCaptureDevice.DeviceType
-    private var cameraPosition: AVCaptureDevice.Position
-    private var view: PreviewView
-    
-    init(delegate: CameraViewDelegate? = nil, cameraType: AVCaptureDevice.DeviceType = .builtInWideAngleCamera, cameraPosition: AVCaptureDevice.Position = .back) {
-        self.delegate = delegate
-        self.cameraType = cameraType
-        self.cameraPosition = cameraPosition
-        self.view = PreviewView(delegate: delegate, cameraType: cameraType, cameraPosition: cameraPosition)
-    }
-    
-    func makeUIView(context: UIViewRepresentableContext<PreviewHolder>) -> PreviewView {
-        view
-    }
-    
-    func updateUIView(_ uiView: PreviewView, context: UIViewRepresentableContext<PreviewHolder>) {
-    }
-    
-    func getView() -> PreviewView {
-        return self.view
-    }
-    
-    typealias UIViewType = PreviewView
-}
-
-private class PreviewView: UIView, AVCapturePhotoCaptureDelegate {
-    
-    @EnvironmentObject var cameraState : CameraState
-    
-    private var delegate: CameraViewDelegate?
-    
-    private var captureSession: AVCaptureSession?
-    private var videoDeviceInput: AVCaptureDeviceInput?
-    private var photoOutput: AVCapturePhotoOutput?
-    
-    var videoPreviewLayer: AVCaptureVideoPreviewLayer {
-        return layer as! AVCaptureVideoPreviewLayer
-    }
-    
-    init(delegate: CameraViewDelegate? = nil, cameraType: AVCaptureDevice.DeviceType = .builtInWideAngleCamera, cameraPosition: AVCaptureDevice.Position = .back) {
-        super.init(frame: .zero)
-        
-        self.delegate = delegate
-        
-        var accessAllowed = false
-        
-        let blocker = DispatchGroup()
-        blocker.enter()
-        
-        AVCaptureDevice.requestAccess(for: .video) { (flag) in
-            accessAllowed = true
-            delegate?.cameraAccessGranted()
-            blocker.leave()
-        }
-        
-        blocker.wait()
-        
-        if !accessAllowed {
-            delegate?.cameraAccessDenied()
-            return
-        }
-        
-        let session = AVCaptureSession()
-        session.beginConfiguration()
-        let videoDevice = AVCaptureDevice.default(cameraType,
-                                                  for: .video, position: cameraPosition)
-        
-        guard videoDevice != nil, let deviceInput = try? AVCaptureDeviceInput(device: videoDevice!), session.canAddInput(deviceInput) else {
-            delegate?.noCameraDetected()
-            return
-        }
-        self.videoDeviceInput = deviceInput
-        session.addInput(videoDeviceInput!)
-        
-        self.photoOutput = AVCapturePhotoOutput()
-        photoOutput!.isHighResolutionCaptureEnabled = true
-        photoOutput!.isLivePhotoCaptureEnabled = photoOutput!.isLivePhotoCaptureSupported
-        
-        guard session.canAddOutput(photoOutput!) else {
-            delegate?.noCameraDetected()
-            return
+        ZStack {
             
+            CameraLiveView(camera: cameraModel)
+                .edgesIgnoringSafeArea(.horizontal)
+            
+            VStack{
+                
+                if cameraModel.isTaken {
+                    
+                    HStack {
+                        
+                        Spacer()
+                        
+                        Button(action: {
+                            cameraModel.retake()
+                        },
+                        label: {
+                            Image(systemName: "arrow.counterclockwise.circle.fill")
+                                .font(.system(size: 50))
+                                .foregroundColor(.white)
+                                .padding()
+                                .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                        })
+                        
+                    }
+                }
+                
+                Spacer()
+                
+                HStack {
+                    
+                    if cameraModel.isTaken {
+                        
+                        // Recognize Button
+                        
+                        Button(
+                            action: {
+                                if !cameraModel.isRecognized {
+                                    
+                                }
+                                
+                            },
+                            label: {
+                                HStack {
+                                    Image(systemName: "magnifyingglass")
+                                    
+                                    
+                                    Text("Recognize")
+                                        .fontWeight(.bold)
+                                    
+                                }
+                                .font(.title)
+                                .foregroundColor(.black)
+                                .padding(.vertical,10)
+                                .padding(.horizontal,20)
+                                .background(Color.white)
+                                .clipShape(Capsule())
+                                .offset(y: -50)
+                                .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                                
+                            })
+                            .padding(.leading)
+                        
+                    } else {
+                        
+                        // Take Pic Button
+                        
+                        Button(
+                            action: {
+                                cameraModel.takePic()
+                            },
+                            label: {
+                                
+                                ZStack{
+                                    Circle()
+                                        .fill(Color.white)
+                                        .frame(width: 65, height: 65)
+                                    
+                                    Circle()
+                                        .stroke(Color.white,lineWidth: 5)
+                                        .frame(width: 80, height: 80)
+                                }
+                                .offset(y: -50)
+                                .padding()
+                            })
+                        
+                    }
+                }
+                .frame(height: 75)
+            }
         }
-        session.sessionPreset = .photo
-        session.addOutput(photoOutput!)
-        
-        session.commitConfiguration()
-        
-        self.captureSession = session
-        delegate?.cameraSessionStarted()
-        self.captureSession?.startRunning()
-    }
-    
-    override class var layerClass: AnyClass {
-        AVCaptureVideoPreviewLayer.self
-    }
-    
-    override func didMoveToSuperview() {
-        super.didMoveToSuperview()
-        
-        if nil != self.superview {
-            self.videoPreviewLayer.session = self.captureSession
-            self.videoPreviewLayer.videoGravity = .resizeAspectFill
+        .onAppear(perform: {
+            cameraModel.check()
+        })
+        .alert(isPresented: $cameraModel.alert) {
+            Alert(title: Text("Please Enable Camera Access"))
         }
-    }
-    
-    func capturePhoto() {
-        let photoSettings: AVCapturePhotoSettings
-        if photoOutput!.availablePhotoCodecTypes.contains(.hevc) {
-            photoSettings = AVCapturePhotoSettings(format:
-                [AVVideoCodecKey: AVVideoCodecType.hevc])
-        } else {
-            photoSettings = AVCapturePhotoSettings()
-        }
-        photoSettings.flashMode = .auto
-        self.photoOutput?.capturePhoto(with: photoSettings, delegate: self)
-    }
-    
-    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        if error != nil {
-            cameraState.capturedImageError = PhotoParseError.error(error!)
-            return
-        }
-        
-        if let cgImage = photo.previewCGImageRepresentation()?.takeRetainedValue() {
-            let orientation = photo.metadata[kCGImagePropertyOrientation as String] as! NSNumber
-            let uiOrientation = UIImage.Orientation(rawValue: orientation.intValue)!
-            let image = UIImage(cgImage: cgImage, scale: 1, orientation: uiOrientation)
-            cameraState.capturedImage = image
-        } else {
-            cameraState.capturedImageError = PhotoParseError.takeRetainValueFailed
-        }
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) not implemented")
-    }
-}
-
-public struct CameraView_Previews: PreviewProvider {
-    public static var previews: some View {
-        CameraView()
     }
 }
 
