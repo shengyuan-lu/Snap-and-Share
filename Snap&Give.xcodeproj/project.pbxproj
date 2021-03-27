@@ -11,6 +11,7 @@
 		F4FA34EC260F97C900D3F475 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA34EB260F97C900D3F475 /* ContentView.swift */; };
 		F4FA34EE260F97CB00D3F475 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4FA34ED260F97CB00D3F475 /* Assets.xcassets */; };
 		F4FA34F1260F97CB00D3F475 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4FA34F0260F97CB00D3F475 /* Preview Assets.xcassets */; };
+		F4FA34FA260F980C00D3F475 /* Food101.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F4FA34F9260F980C00D3F475 /* Food101.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		F4FA34ED260F97CB00D3F475 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4FA34F0260F97CB00D3F475 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F4FA34F2260F97CB00D3F475 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4FA34F9260F980C00D3F475 /* Food101.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Food101.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 				F4FA34E9260F97C900D3F475 /* Snap_GiveApp.swift */,
 				F4FA34EB260F97C900D3F475 /* ContentView.swift */,
 				F4FA34ED260F97CB00D3F475 /* Assets.xcassets */,
+				F4FA34F9260F980C00D3F475 /* Food101.mlmodel */,
 				F4FA34F2260F97CB00D3F475 /* Info.plist */,
 				F4FA34EF260F97CB00D3F475 /* Preview Content */,
 			);
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4FA34FA260F980C00D3F475 /* Food101.mlmodel in Sources */,
 				F4FA34EC260F97C900D3F475 /* ContentView.swift in Sources */,
 				F4FA34EA260F97C900D3F475 /* Snap_GiveApp.swift in Sources */,
 			);
