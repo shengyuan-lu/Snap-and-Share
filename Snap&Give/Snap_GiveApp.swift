@@ -11,7 +11,7 @@ import SwiftUI
 struct Snap_GiveApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
 }
