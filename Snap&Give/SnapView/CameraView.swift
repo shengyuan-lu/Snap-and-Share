@@ -54,7 +54,6 @@ struct CameraView: View {
                                 HStack {
                                     Image(systemName: "magnifyingglass")
                                     
-                                    
                                     Text("Recognize")
                                         .fontWeight(.bold)
                                     

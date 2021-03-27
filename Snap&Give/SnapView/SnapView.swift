@@ -6,7 +6,8 @@ struct SnapView: View {
         
         NavigationView {
            CameraView()
-            .navigationTitle("Snap&Give")
+            .navigationTitle("Snap & Give")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
     

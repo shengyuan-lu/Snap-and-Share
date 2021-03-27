@@ -10,10 +10,10 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
     @Published var alert = false
     
     @Published var output = AVCapturePhotoOutput()
-    @Published var preview : AVCaptureVideoPreviewLayer!
+    @Published var preview: AVCaptureVideoPreviewLayer!
     
     @Published var isSaved = false
-    @Published var picData = Data(count: 0)
+    @Published var pixBuffer:CVPixelBuffer?
     
     @Published var isRecognized = false
     
@@ -49,7 +49,7 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
             let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back)
             let input = try AVCaptureDeviceInput(device: device!)
             
-            if self.session.canAddInput(input){
+            if self.session.canAddInput(input) {
                 self.session.addInput(input)
             }
             
@@ -76,7 +76,6 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
             DispatchQueue.main.async {
                 withAnimation{
                     self.isTaken.toggle()
-                    
                 }
             }
         }
@@ -90,12 +89,12 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
             
             DispatchQueue.main.async {
                 
-                withAnimation{
+                withAnimation {
                     self.isTaken.toggle()
                 }
                 
                 self.isSaved = false
-                self.picData = Data(count: 0)
+                self.pixBuffer = nil
             }
         }
     }
@@ -106,22 +105,11 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
             return
         }
         
-        guard let imageData = photo.fileDataRepresentation() else {
+        guard let pixBuffer = photo.pixelBuffer else {
             return
         }
         
-        self.picData = imageData
-    }
-    
-    func savePic() {
-        
-        guard let image = UIImage(data: self.picData) else{return}
-        
-        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-        
-        self.isSaved = true
-        
-        print("saved Successfully....")
+        self.pixBuffer = pixBuffer
     }
     
 }

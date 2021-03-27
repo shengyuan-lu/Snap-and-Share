@@ -6,6 +6,7 @@ struct NewsView: View {
         NavigationView {
             Text("NewsView")
                 .navigationTitle("Hunger News")
+                .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
