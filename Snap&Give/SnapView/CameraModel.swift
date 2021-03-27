@@ -12,9 +12,7 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
     @Published var output = AVCapturePhotoOutput()
     @Published var preview: AVCaptureVideoPreviewLayer!
     
-    @Published var isSaved = false
-    @Published var pixBuffer:CVPixelBuffer?
-    
+    @Published var imageToSave:UIImage?
     @Published var isRecognized = false
     
     func check() {
@@ -26,8 +24,8 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
             return
             
         case .notDetermined:
-            AVCaptureDevice.requestAccess(for: .video) { (status) in
-                if status{
+            AVCaptureDevice.requestAccess(for: .video) { (authorized) in
+                if authorized {
                     self.setUp()
                 }
             }
@@ -93,23 +91,50 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
                     self.isTaken.toggle()
                 }
                 
-                self.isSaved = false
-                self.pixBuffer = nil
+                self.imageToSave = nil
             }
         }
     }
     
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         
-        if error != nil{
+        // Check if there is any error in capturing
+        guard error == nil else {
+            print("Fail to capture photo: \(String(describing: error))")
             return
         }
         
-        guard let pixBuffer = photo.pixelBuffer else {
+        // Check if the pixel buffer could be converted to image data
+        guard let imageData = photo.fileDataRepresentation() else {
+            print("Fail to convert pixel buffer")
             return
         }
         
-        self.pixBuffer = pixBuffer
+        // Check if UIImage could be initialized with image data
+        guard let capturedImage = UIImage.init(data: imageData , scale: 1.0) else {
+            print("Fail to convert image data to UIImage")
+            return
+        }
+        
+        // Get original image width/height
+        let imgWidth = capturedImage.size.width
+        let imgHeight = capturedImage.size.height
+        
+        // Get origin of cropped image
+        let imgOrigin = CGPoint(x: 0, y: 0)
+        
+        // Get size of cropped iamge
+        let imgSize = CGSize(width: imgWidth/1.5, height: imgWidth/1.5)
+
+        // Check if image could be cropped successfully
+        guard let imageRef = capturedImage.cgImage?.cropping(to: CGRect(origin: imgOrigin, size: imgSize)) else {
+            print("Fail to crop image")
+            return
+        }
+        
+        // Convert cropped image ref to UIImage
+        self.imageToSave = UIImage(cgImage: imageRef, scale: 1.0, orientation: .down)
+        UIImageWriteToSavedPhotosAlbum(imageToSave!, nil, nil, nil)
     }
     
 }

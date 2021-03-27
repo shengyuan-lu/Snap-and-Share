@@ -4,19 +4,19 @@ import AVFoundation
 
 struct CameraLiveView: UIViewRepresentable {
     
-    @ObservedObject var camera: CameraModel
+    @ObservedObject var cameraModel: CameraModel
     
     func makeUIView(context: Context) ->  UIView {
         
         let view = UIView(frame: UIScreen.main.bounds)
         
-        camera.preview = AVCaptureVideoPreviewLayer(session: camera.session)
-        camera.preview.frame = view.frame
+        cameraModel.preview = AVCaptureVideoPreviewLayer(session: cameraModel.session)
+        cameraModel.preview.frame = view.frame
         
-        camera.preview.videoGravity = .resizeAspectFill
-        view.layer.addSublayer(camera.preview)
+        cameraModel.preview.videoGravity = .resizeAspectFill
+        view.layer.addSublayer(cameraModel.preview)
         
-        camera.session.startRunning()
+        cameraModel.session.startRunning()
         
         return view
     }

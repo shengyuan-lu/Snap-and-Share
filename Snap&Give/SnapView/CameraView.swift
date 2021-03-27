@@ -6,14 +6,16 @@ struct CameraView: View {
     
     @StateObject var cameraModel = CameraModel()
     
+    @State private var cornerRadius:CGFloat = 20
+    
     var body: some View{
         
         ZStack {
             
-            CameraLiveView(camera: cameraModel)
+            CameraLiveView(cameraModel: cameraModel)
                 .edgesIgnoringSafeArea(.horizontal)
             
-            VStack{
+            VStack {
                 
                 if cameraModel.isTaken {
                     
@@ -42,12 +44,9 @@ struct CameraView: View {
                     if cameraModel.isTaken {
                         
                         // Recognize Button
-                        
                         Button(
                             action: {
-                                if !cameraModel.isRecognized {
-                                    
-                                }
+
                                 
                             },
                             label: {
@@ -60,8 +59,8 @@ struct CameraView: View {
                                 }
                                 .font(.title)
                                 .foregroundColor(.black)
-                                .padding(.vertical,10)
-                                .padding(.horizontal,20)
+                                .padding(.vertical, 20)
+                                .padding(.horizontal, 20)
                                 .background(Color.white)
                                 .clipShape(Capsule())
                                 .offset(y: -50)
@@ -97,6 +96,12 @@ struct CameraView: View {
                 }
                 .frame(height: 75)
             }
+            
+            RoundedRectangle(cornerRadius: self.cornerRadius)
+                .stroke(Color.green, lineWidth: 10)
+                .frame(width: UIScreen.main.bounds.size.width/1.5, height: UIScreen.main.bounds.size.width/1.5, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .offset(y: -10.0)
+            
         }
         .onAppear(perform: {
             cameraModel.check()
