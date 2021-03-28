@@ -22,88 +22,85 @@ struct CameraView: View {
             
             CameraLiveView(cameraModel: cameraModel)
             
-            VStack {
+            HStack {
                 
                 if cameraModel.isTaken {
                     
-                    HStack {
+                    VStack {
                         
                         Spacer()
                         
-                        Button(action: {
-                            cameraModel.retake()
-                            
-                            self.classificationLabel = ""
-                        },
-                        label: {
-                            Image(systemName: "arrow.counterclockwise.circle.fill")
-                                .font(.system(size: 50))
-                                .foregroundColor(.white)
-                                .padding()
-                                .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                        })
-                        
-                    }
-                }
-                
-                Spacer()
-                
-                HStack {
-                    
-                    if cameraModel.isTaken {
-                        
-                        // Recognize Button
-                        Button(
-                            action: {
-                                
-                                DispatchQueue.global(qos: .background).async {
-                                    
-                                    guard let image = cameraModel.imageToSave else {
-                                        print("There's no image saved")
-                                        return
-                                    }
-                                    
-                                    let resizedImage = image.resizeTo(size: mlImageSize)
-                                    
-                                    guard let buffer = resizedImage.toBuffer() else {
-                                        print("Convert Image to Buffer Failed")
-                                        return
-                                    }
-                                    
-                                    let output = try? MLModel.prediction(image: buffer)
-                                    
-                                    DispatchQueue.main.async {
-                                        if let output = output {
-                                            self.classificationLabel = output.classLabel
+                        HStack {
+                            // Recognize Button
+                            Button(
+                                action: {
+                                    DispatchQueue.global(qos: .background).async {
+                                        
+                                        guard let image = cameraModel.imageToSave else {
+                                            print("There's no image saved")
+                                            return
+                                        }
+                                        
+                                        let resizedImage = image.resizeTo(size: mlImageSize)
+                                        
+                                        guard let buffer = resizedImage.toBuffer() else {
+                                            print("Convert Image to Buffer Failed")
+                                            return
+                                        }
+                                        
+                                        let output = try? MLModel.prediction(image: buffer)
+                                        
+                                        DispatchQueue.main.async {
+                                            if let output = output {
+                                                self.classificationLabel = output.classLabel
+                                            }
                                         }
                                     }
+                                },
+                                label: {
+                                    HStack {
+                                        Image(systemName: "magnifyingglass")
+                                        
+                                        Text("Recognize")
+                                            .fontWeight(.bold)
+                                        
+                                    }
+                                    .font(.title)
+                                    .foregroundColor(.black)
+                                    .padding(.vertical, 20)
+                                    .padding(.horizontal, 20)
+                                    .background(Color.white)
+                                    .clipShape(Capsule())
+                                    .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                                     
-                                }
+                                })
+                                .padding(.horizontal)
+                            
+                            // Retake Button
+                            Button(action: {
+                                cameraModel.retake()
+                                
+                                self.classificationLabel = ""
                             },
                             label: {
-                                HStack {
-                                    Image(systemName: "magnifyingglass")
-                                    
-                                    Text("Recognize")
-                                        .fontWeight(.bold)
-                                    
-                                }
-                                .font(.title)
-                                .foregroundColor(.black)
-                                .padding(.vertical, 20)
-                                .padding(.horizontal, 20)
-                                .background(Color.white)
-                                .clipShape(Capsule())
-                                .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                                .offset(y: -50)
-                                
+                                Image(systemName: "arrow.counterclockwise.circle.fill")
+                                    .font(.system(size: 70))
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                             })
-                            .padding(.leading)
+                            
+                        }
                         
-                    } else {
-                        
-                        // Take Pic Button
-                        
+                    }
+                    
+                    
+                    
+                    
+                } else {
+                    // Take Pic Button
+                    VStack {
+                        Spacer()
                         Button(
                             action: {
                                 cameraModel.takePicture()
@@ -119,31 +116,27 @@ struct CameraView: View {
                                         .stroke(Color.white,lineWidth: 5)
                                         .frame(width: 80, height: 80)
                                 }
-                                .offset(y: -50)
+                                .offset(y: -10)
                                 .padding()
                             })
-                        
                     }
                 }
-                .frame(height: 75)
             }
             
-            ZStack {
-                RoundedRectangle(cornerRadius: self.cornerRadius)
-                    .stroke(Color.green, lineWidth: 10)
-                    .frame(width: UIScreen.main.bounds.size.width/1.5, height: UIScreen.main.bounds.size.width/1.5, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .offset(y: 10)
-                    .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                
-                Text(self.classificationLabel)
-                    .fontWeight(.bold)
-                    .font(.title)
-                    .foregroundColor(.white)
-                    .padding()
-                
-            }
+            RoundedRectangle(cornerRadius: self.cornerRadius)
+                .stroke(Color.green, lineWidth: 10)
+                .frame(width: UIScreen.main.bounds.size.width/1.5, height: UIScreen.main.bounds.size.width/1.5, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .offset(y: 20)
+                .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
             
+            Text(self.classificationLabel)
+                .fontWeight(.bold)
+                .font(.title)
+                .foregroundColor(.white)
+                .offset(y: 20)
+                .padding()
         }
+        
         .onAppear(perform: {
             cameraModel.check()
         })
@@ -151,6 +144,6 @@ struct CameraView: View {
             Alert(title: Text("Please Enable Camera Access"))
         }
     }
+    
+    
 }
-
-

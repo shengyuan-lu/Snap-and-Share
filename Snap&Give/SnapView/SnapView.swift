@@ -17,6 +17,7 @@ struct SnapView: View {
                 VStack {
                     GuideCard()
                         .frame(height: 160)
+                        .padding(.horizontal, 5)
                     Spacer()
                 }
 
