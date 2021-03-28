@@ -1,6 +1,11 @@
 # SnapShare
 <img src="https://i.imgur.com/2qIlLVe.png" width=750 />
 
+## Demo Video
+Click the image below to watch a demo video
+
+[![Demo Video](https://i9.ytimg.com/vi_webp/Zk3euhLTvaQ/mqdefault.webp?time=1616972700000&sqp=CJyXhIMG&rs=AOn4CLC5nx1MVFlMeOgM7ohLq9c3k3ctFA)](https://youtu.be/Zk3euhLTvaQ)
+
 ## Inspiration
 SnapShare took its inspirations from a popular social media application: SnapChat, which facilitates instant visual communications through photos taken by our smartphones. As an app for social good, SnapShare makes it more convenient for people to donate their food to lower-income people via food banks or shelters. We believe that widening the channel for assisting those who are in need is crucial especially during a pandemic when the unemployment rate soars around the world. We want to offer an integrated system for people to document what they can offer as well as to allocate collective resources to people whose lives might depend on these sustenance in an efficient manner.
 
