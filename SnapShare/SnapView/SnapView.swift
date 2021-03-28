@@ -40,7 +40,7 @@ struct SnapView: View {
                 
             }, label: {
                 HStack {
-                    Image(systemName: "cart.fill")
+                    Image("vegetables-carrot")
                     
                     Text("\(foodList.foodDict.count)")
                         .fontWeight(.bold)
