@@ -28,6 +28,9 @@ struct SnapView: View {
                         .padding(.horizontal, 5)
                     Spacer()
                 }
+                .sheet(isPresented: $showFoodList, content: {
+                    FoodListView(foodList: foodList)
+                })
                 
                 
             }
