@@ -22,9 +22,8 @@ struct MainView: View {
                 .tabItem {
                     Label("News", image: "newspaper-fold")
                 }
-            
-            
         }
+        .accentColor(.green)
         
     }
     
