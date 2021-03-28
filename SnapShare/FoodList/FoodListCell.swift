@@ -14,6 +14,7 @@ struct FoodListCell: View {
             Text(name)
                 .font(.title)
                 .fontWeight(.bold)
+                .lineLimit(2)
             
             Spacer()
         }

@@ -2,10 +2,16 @@ import SwiftUI
 
 struct FoodListView: View {
     
-    @ObservedObject var foodList:FoodList
+    @ObservedObject var foodList: FoodList
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            LazyVStack {
+                ForEach(Array(foodList.foodDict.keys), id: \.self) { key in
+                    FoodListCell(image: foodList.foodDict[key]!, name: key)
+                }
+            }
+        }
     }
 }
 

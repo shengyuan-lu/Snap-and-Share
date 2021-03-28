@@ -8,6 +8,8 @@ struct SnapView: View {
     
     @State private var selection = 0
     
+    @State private var showFoodList = false
+    
     let cornerRadius:CGFloat = 10
     let gReaderHeight:CGFloat = 120
     
@@ -27,7 +29,7 @@ struct SnapView: View {
                     Spacer()
                 }
                 
-
+                
             }
             .onChange(of: cameraModel.isTaken, perform: { value in
                 if cameraModel.isTaken {
@@ -36,17 +38,19 @@ struct SnapView: View {
                     self.selection = 0
                 }
             })
-            .navigationBarItems(trailing: Button(action: {
-                
-            }, label: {
-                HStack {
-                    Image("vegetables-carrot")
-                    
-                    Text("\(foodList.foodDict.count)")
-                        .fontWeight(.bold)
-                }
-                .font(.title2)
-            }))
+            .navigationBarItems(trailing:
+                                    Button(action: {
+                                        showFoodList = true
+                                    }, label: {
+                                        HStack {
+                                            Image("vegetables-carrot")
+                                            
+                                            Text("\(foodList.foodDict.count)")
+                                                .fontWeight(.bold)
+                                        }
+                                        .font(.title2)
+                                    }))
+
             
             
         }
