@@ -5,7 +5,7 @@ struct NewsView: View {
     var body: some View {
         NavigationView {
             Text("NewsView")
-                .navigationTitle("Get Involved")
+                .navigationTitle("🚨 Get Involved")
                 .navigationBarTitleDisplayMode(.large)
         }
     }

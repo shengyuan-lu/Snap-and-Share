@@ -28,7 +28,7 @@ struct GuideCard: View {
                         VStack(alignment: .leading) {
                             
                             Text("Step 1")
-                                .foregroundColor(.yellow)
+                                .foregroundColor(.green)
                                 .font(.title3)
                                 .fontWeight(.bold)
                                 .foregroundColor(.secondary)
@@ -80,7 +80,7 @@ struct GuideCard: View {
                         VStack(alignment: .leading) {
                             
                             Text("Step 2")
-                                .foregroundColor(.yellow)
+                                .foregroundColor(.green)
                                 .font(.title3)
                                 .fontWeight(.bold)
                                 .foregroundColor(.secondary)
