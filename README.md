@@ -6,6 +6,9 @@ Click the image below to watch a demo video
 
 [![Demo Video](https://i9.ytimg.com/vi_webp/Zk3euhLTvaQ/mqdefault.webp?time=1616972700000&sqp=CJyXhIMG&rs=AOn4CLC5nx1MVFlMeOgM7ohLq9c3k3ctFA)](https://youtu.be/Zk3euhLTvaQ)
 
+## Introduction
+SnapShare uses machine learning to make donating your surplus food super easy. There are only 2 steps: Snap and Share. Snap a pic of your surplus food, and the machine learning model will automatically classify it and match a local food bank that needs it. For instance, if you have donuts to donate, the machine learning model will match you with a food bank that needs it the most. Additionally, users can just casually browse a whole list of food banks and be aware of the food desert situation in the local area.
+
 ## Inspiration
 SnapShare took its inspirations from a popular social media application: SnapChat, which facilitates instant visual communications through photos taken by our smartphones. As an app for social good, SnapShare makes it more convenient for people to donate their food to lower-income people via food banks or shelters. We believe that widening the channel for assisting those who are in need is crucial especially during a pandemic when the unemployment rate soars around the world. We want to offer an integrated system for people to document what they can offer as well as to allocate collective resources to people whose lives might depend on these sustenance in an efficient manner.
 
