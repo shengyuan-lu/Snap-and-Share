@@ -6,8 +6,8 @@ struct DonateView: View {
         
         NavigationView {
             Text("DonateView")
-                .navigationTitle("Food Banks")
-                .navigationBarTitleDisplayMode(.inline)
+                .navigationTitle("Discover Food Banks")
+                .navigationBarTitleDisplayMode(.large)
         }
 
         

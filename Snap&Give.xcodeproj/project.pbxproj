@@ -11,6 +11,7 @@
 		F444E5BF260FBC83003B0C3F /* CameraLiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E5BE260FBC83003B0C3F /* CameraLiveView.swift */; };
 		F444E5C7260FEED1003B0C3F /* UIImage Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E5C6260FEED1003B0C3F /* UIImage Extension.swift */; };
 		F452DB92260FF972004E77DC /* MobileNetV2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F452DB91260FF972004E77DC /* MobileNetV2.mlmodel */; };
+		F452DB9E261027C5004E77DC /* Food101.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F452DB9D261027C5004E77DC /* Food101.mlmodel */; };
 		F4FA34EA260F97C900D3F475 /* Snap_GiveApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA34E9260F97C900D3F475 /* Snap_GiveApp.swift */; };
 		F4FA34EC260F97C900D3F475 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA34EB260F97C900D3F475 /* MainView.swift */; };
 		F4FA34EE260F97CB00D3F475 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4FA34ED260F97CB00D3F475 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 		F444E5BE260FBC83003B0C3F /* CameraLiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraLiveView.swift; sourceTree = "<group>"; };
 		F444E5C6260FEED1003B0C3F /* UIImage Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage Extension.swift"; sourceTree = "<group>"; };
 		F452DB91260FF972004E77DC /* MobileNetV2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2.mlmodel; sourceTree = "<group>"; };
+		F452DB9D261027C5004E77DC /* Food101.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Food101.mlmodel; sourceTree = "<group>"; };
 		F4FA34E6260F97C900D3F475 /* Snap&Give.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Snap&Give.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4FA34E9260F97C900D3F475 /* Snap_GiveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snap_GiveApp.swift; sourceTree = "<group>"; };
 		F4FA34EB260F97C900D3F475 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				F4FA34FE260F9B3600D3F475 /* DonateView */,
 				F4FA34FF260F9B5000D3F475 /* NewsView */,
 				F4FA3504260F9BE900D3F475 /* Helper */,
+				F452DB9D261027C5004E77DC /* Food101.mlmodel */,
 				F452DB91260FF972004E77DC /* MobileNetV2.mlmodel */,
 				F4FA34ED260F97CB00D3F475 /* Assets.xcassets */,
 				F4FA34F2260F97CB00D3F475 /* Info.plist */,
@@ -202,6 +205,7 @@
 				F4FA3501260F9B6900D3F475 /* SnapView.swift in Sources */,
 				F444E5BF260FBC83003B0C3F /* CameraLiveView.swift in Sources */,
 				F444E5BB260FBBE0003B0C3F /* CameraModel.swift in Sources */,
+				F452DB9E261027C5004E77DC /* Food101.mlmodel in Sources */,
 				F452DB92260FF972004E77DC /* MobileNetV2.mlmodel in Sources */,
 				F4FA34EA260F97C900D3F475 /* Snap_GiveApp.swift in Sources */,
 			);

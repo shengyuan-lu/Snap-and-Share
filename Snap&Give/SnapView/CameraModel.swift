@@ -65,35 +65,34 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
         
     }
     
-    func takePic() {
+    func takePicture() {
         
-        self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
+        DispatchQueue.global(qos: .background).async {
+            
+            self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
         
-        
-        self.session.stopRunning()
-        
-        DispatchQueue.main.async {
-            withAnimation{
-                self.isTaken.toggle()
-            }
         }
+        
         
     }
     
     func retake() {
         
-        
-        self.session.startRunning()
-        
-        DispatchQueue.main.async {
+        DispatchQueue.global(qos: .background).async {
             
-            withAnimation {
-                self.isTaken.toggle()
+            self.session.startRunning()
+            
+            DispatchQueue.main.async {
+                
+                withAnimation {
+                    self.isTaken = false
+                }
+                
+                self.imageToSave = nil
+                
             }
             
-            self.imageToSave = nil
         }
-        
     }
     
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
@@ -115,6 +114,12 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
             print("Fail to convert image data to UIImage")
             return
         }
+        
+        print("Pic taken")
+        
+        self.session.stopRunning()
+        
+        self.isTaken = true
         
         // Save Image
         self.imageToSave = capturedImage

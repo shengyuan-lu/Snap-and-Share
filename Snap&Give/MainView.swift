@@ -10,17 +10,18 @@ struct MainView: View {
         TabView {
             SnapView()
                 .tabItem {
-                    Image(systemName: "camera.fill")
+                    
+                    Label("Snap", image: "vegetables-plate")
                 }
             
             DonateView()
                 .tabItem {
-                    Image(systemName: "hands.sparkles.fill")
+                    Label("Give", image: "love-heart-hands-hold-1")
                 }
             
             NewsView()
                 .tabItem {
-                    Image(systemName: "newspaper.fill")
+                    Label("News", image: "newspaper-fold")
                 }
             
             

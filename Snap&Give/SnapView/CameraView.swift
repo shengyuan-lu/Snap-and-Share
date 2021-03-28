@@ -12,6 +12,8 @@ struct CameraView: View {
     
     @State private var MLModel = MobileNetV2()
     
+    let mlImageSize = CGSize(width: 224, height: 224)
+    
     @State private var classificationLabel:String = ""
     
     var body: some View{
@@ -19,7 +21,6 @@ struct CameraView: View {
         ZStack {
             
             CameraLiveView(cameraModel: cameraModel)
-                .edgesIgnoringSafeArea(.horizontal)
             
             VStack {
                 
@@ -31,6 +32,8 @@ struct CameraView: View {
                         
                         Button(action: {
                             cameraModel.retake()
+                            
+                            self.classificationLabel = ""
                         },
                         label: {
                             Image(systemName: "arrow.counterclockwise.circle.fill")
@@ -53,21 +56,29 @@ struct CameraView: View {
                         Button(
                             action: {
                                 
-                                let image = cameraModel.imageToSave
-                                
-                                let resizedImage = image?.resizeTo(size: CGSize(width: 224, height: 224))
-                                
-                                let buffer = resizedImage?.toBuffer()
-                            
-                                let output = try? MLModel.prediction(image: buffer!)
-                                
-                                if let output = output {
-                                    self.classificationLabel = output.classLabel
+                                DispatchQueue.global(qos: .background).async {
                                     
-                                    print(self.classificationLabel)
+                                    guard let image = cameraModel.imageToSave else {
+                                        print("There's no image saved")
+                                        return
+                                    }
+                                    
+                                    let resizedImage = image.resizeTo(size: mlImageSize)
+                                    
+                                    guard let buffer = resizedImage.toBuffer() else {
+                                        print("Convert Image to Buffer Failed")
+                                        return
+                                    }
+                                    
+                                    let output = try? MLModel.prediction(image: buffer)
+                                    
+                                    DispatchQueue.main.async {
+                                        if let output = output {
+                                            self.classificationLabel = output.classLabel
+                                        }
+                                    }
+                                    
                                 }
-
-                                
                             },
                             label: {
                                 HStack {
@@ -83,8 +94,8 @@ struct CameraView: View {
                                 .padding(.horizontal, 20)
                                 .background(Color.white)
                                 .clipShape(Capsule())
-                                .offset(y: -50)
                                 .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                                .offset(y: -50)
                                 
                             })
                             .padding(.leading)
@@ -95,7 +106,7 @@ struct CameraView: View {
                         
                         Button(
                             action: {
-                                cameraModel.takePic()
+                                cameraModel.takePicture()
                             },
                             label: {
                                 
@@ -117,10 +128,20 @@ struct CameraView: View {
                 .frame(height: 75)
             }
             
-            RoundedRectangle(cornerRadius: self.cornerRadius)
-                .stroke(Color.green, lineWidth: 10)
-                .frame(width: UIScreen.main.bounds.size.width/1.5, height: UIScreen.main.bounds.size.width/1.5, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                .offset(y: -10.0)
+            ZStack {
+                RoundedRectangle(cornerRadius: self.cornerRadius)
+                    .stroke(Color.green, lineWidth: 10)
+                    .frame(width: UIScreen.main.bounds.size.width/1.5, height: UIScreen.main.bounds.size.width/1.5, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .offset(y: -10.0)
+                    .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                
+                Text(self.classificationLabel)
+                    .fontWeight(.bold)
+                    .font(.title)
+                    .foregroundColor(.white)
+                    .padding()
+                
+            }
             
         }
         .onAppear(perform: {
