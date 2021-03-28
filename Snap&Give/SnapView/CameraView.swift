@@ -34,7 +34,7 @@ struct CameraView: View {
                         HStack {
                             
                             // Recognize Button
-                            Button(
+                            Button (
                                 action: {
                                     DispatchQueue.global(qos: .background).async {
                                         
@@ -140,6 +140,11 @@ struct CameraView: View {
         .alert(isPresented: $cameraModel.alert) {
             Alert(title: Text("Please Enable Camera Access"))
         }
+        .onChange(of: self.presentConfirmation, perform: { value in
+            if !self.presentConfirmation {
+                reset()
+            }
+        })
 
     }
     

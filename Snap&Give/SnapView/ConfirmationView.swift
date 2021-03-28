@@ -25,6 +25,7 @@ struct ConfirmationView: View {
                     Text("Food Name: \(itemName.uppercased())")
                         .font(.title)
                         .fontWeight(.bold)
+                        .padding()
                     
                     Text("Confidence Level: \(confidenceLevel)")
                         .font(.body)
