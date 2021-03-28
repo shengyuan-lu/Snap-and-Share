@@ -3,8 +3,10 @@ import SwiftUI
 struct ConfirmationView: View {
     
     let image:UIImage
-    let itemName:String
+    let foodName:String
     let confidenceLevel:Double
+    
+    @ObservedObject var foodList: FoodList
     
     @Environment(\.presentationMode) var presentationMode
     
@@ -18,11 +20,12 @@ struct ConfirmationView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: UIScreen.main.bounds.width/1.5, height: UIScreen.main.bounds.width/1.5, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .border(Color.secondary, width: 10)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                 
                 
                 VStack(alignment: .center, spacing: 10) {
-                    Text("Food Name: \(itemName.uppercased())")
+                    Text("Food Name: \(foodName.uppercased())")
                         .font(.title)
                         .fontWeight(.bold)
                         .padding()
@@ -32,27 +35,30 @@ struct ConfirmationView: View {
                 }
                 
                 VStack(spacing: 10) {
-
+                    
                     // Continue
                     Button(action: {
+                        self.foodList.foodDict[self.foodName] = self.image
+                        self.presentationMode.wrappedValue.dismiss()
                         
                     }, label: {
-                            Text("That's Correct, Continue! ☺️")
-                                .bold()
-                                .lineLimit(1)
-                                .minimumScaleFactor(0.1)
-                                .frame(width: UIScreen.main.bounds.width/1.5, alignment: .center)
-                                .foregroundColor(.white)
-                                .padding()
-                                .background(Color.green)
-                                .cornerRadius(8)
+                        Text("That's Correct, Add To My List! ☺️")
+                            .bold()
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.1)
+                            .frame(width: UIScreen.main.bounds.width/1.5, alignment: .center)
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.green)
+                            .cornerRadius(8)
                         
                     })
-
+                    
                     
                     // Something's off
                     Button(action: {
                         self.presentationMode.wrappedValue.dismiss()
+                        
                     }, label: {
                         Text("Something's off; Scan Again").bold()
                             .foregroundColor(.secondary)
@@ -67,7 +73,7 @@ struct ConfirmationView: View {
             }
             .navigationBarTitle("Confirm Result")
             .navigationBarTitleDisplayMode(.inline)
-
+            
             
         }
     }
@@ -75,6 +81,6 @@ struct ConfirmationView: View {
 
 struct ConfirmationView_Previews: PreviewProvider {
     static var previews: some View {
-        ConfirmationView(image: UIImage(), itemName: "donut", confidenceLevel: 0.555)
+        ConfirmationView(image: UIImage(), foodName: "donut", confidenceLevel: 0.555, foodList: FoodList())
     }
 }

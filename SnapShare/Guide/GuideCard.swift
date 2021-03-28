@@ -35,7 +35,7 @@ struct GuideCard: View {
                                 .lineLimit(1)
                                 .minimumScaleFactor(0.1)
                             
-                            Text("Snap your surplus food")
+                            Text("SNAP your surplus food")
                                 .font(.title)
                                 .fontWeight(.bold)
                                 .foregroundColor(.primary)
@@ -87,7 +87,7 @@ struct GuideCard: View {
                                 .lineLimit(1)
                                 .minimumScaleFactor(0.1)
                             
-                            Text("Give your food to people who needed it the most")
+                            Text("SHARE it with local people in need")
                                 .font(.title)
                                 .fontWeight(.bold)
                                 .foregroundColor(.primary)

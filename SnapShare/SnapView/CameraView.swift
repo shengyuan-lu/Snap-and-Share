@@ -10,6 +10,8 @@ struct CameraView: View {
     
     @State private var MLModel = Food101()
     
+    @ObservedObject var foodList: FoodList
+    
     let mlImageSize = CGSize(width: 299, height: 299)
     
     @State private var classificationLabel: String = ""
@@ -82,7 +84,7 @@ struct CameraView: View {
                                 })
                                 .padding(.horizontal)
                                 .sheet(isPresented: $presentConfirmation, content: {
-                                    ConfirmationView(image: cameraModel.imageToSave!, itemName: self.classificationLabel, confidenceLevel: self.confidenceLevel)
+                                    ConfirmationView(image: cameraModel.imageToSave!, foodName: self.classificationLabel, confidenceLevel: self.confidenceLevel, foodList: foodList)
                                 })
                             
                             // Retake Button
@@ -150,7 +152,6 @@ struct CameraView: View {
     
     func reset() {
         self.cameraModel.retake()
-        
         self.classificationLabel = ""
         self.confidenceLevel = 0.0
     }

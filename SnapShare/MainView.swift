@@ -3,12 +3,13 @@ import SwiftUI
 struct MainView: View {
     
     // MARK: - variables
+    @StateObject var foodList = FoodList()
     
     // MARK: - body
     var body: some View {
         
         TabView {
-            SnapView()
+            SnapView(foodList: foodList)
                 .tabItem {
                     Label("Snap & Share", image: "love-heart-hands-hold-1")
                 }
@@ -18,10 +19,10 @@ struct MainView: View {
                     Label("Food Banks", image: "vegetables-plate")
                 }
             
-            NewsView()
-                .tabItem {
-                    Label("News", image: "newspaper-fold")
-                }
+//            NewsView()
+//                .tabItem {
+//                    Label("News", image: "newspaper-fold")
+//                }
         }
         .accentColor(.green)
         

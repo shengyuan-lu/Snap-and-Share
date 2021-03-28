@@ -14,6 +14,7 @@
 		F452DB9E261027C5004E77DC /* Food101.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F452DB9D261027C5004E77DC /* Food101.mlmodel */; };
 		F4D74E792610525300DEFCC8 /* GuideCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D74E782610525300DEFCC8 /* GuideCard.swift */; };
 		F4D74E7D26106E1B00DEFCC8 /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D74E7C26106E1B00DEFCC8 /* ConfirmationView.swift */; };
+		F4D74E8D2610851500DEFCC8 /* FoodList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D74E8C2610851500DEFCC8 /* FoodList.swift */; };
 		F4FA34EA260F97C900D3F475 /* Snap_ShareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA34E9260F97C900D3F475 /* Snap_ShareApp.swift */; };
 		F4FA34EC260F97C900D3F475 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA34EB260F97C900D3F475 /* MainView.swift */; };
 		F4FA34EE260F97CB00D3F475 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4FA34ED260F97CB00D3F475 /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 		F452DB9D261027C5004E77DC /* Food101.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Food101.mlmodel; sourceTree = "<group>"; };
 		F4D74E782610525300DEFCC8 /* GuideCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideCard.swift; sourceTree = "<group>"; };
 		F4D74E7C26106E1B00DEFCC8 /* ConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
+		F4D74E8C2610851500DEFCC8 /* FoodList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodList.swift; sourceTree = "<group>"; };
 		F4FA34E6260F97C900D3F475 /* SnapShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4FA34E9260F97C900D3F475 /* Snap_ShareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snap_ShareApp.swift; sourceTree = "<group>"; };
 		F4FA34EB260F97C900D3F475 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -63,6 +65,16 @@
 			path = Guide;
 			sourceTree = "<group>";
 		};
+		F4D74E882610843B00DEFCC8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F452DB91260FF972004E77DC /* MobileNetV2.mlmodel */,
+				F452DB9D261027C5004E77DC /* Food101.mlmodel */,
+				F4D74E8C2610851500DEFCC8 /* FoodList.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F4FA34DD260F97C900D3F475 = {
 			isa = PBXGroup;
 			children = (
@@ -85,11 +97,11 @@
 				F4FA34E9260F97C900D3F475 /* Snap_ShareApp.swift */,
 				F4FA34EB260F97C900D3F475 /* MainView.swift */,
 				F4FA34FD260F9B2D00D3F475 /* SnapView */,
+				F4D74E762610524000DEFCC8 /* Guide */,
 				F4FA34FE260F9B3600D3F475 /* DonateView */,
 				F4FA34FF260F9B5000D3F475 /* NewsView */,
+				F4D74E882610843B00DEFCC8 /* Model */,
 				F4FA3504260F9BE900D3F475 /* Helper */,
-				F452DB9D261027C5004E77DC /* Food101.mlmodel */,
-				F452DB91260FF972004E77DC /* MobileNetV2.mlmodel */,
 				F4FA34ED260F97CB00D3F475 /* Assets.xcassets */,
 				F4FA34F2260F97CB00D3F475 /* Info.plist */,
 				F4FA34EF260F97CB00D3F475 /* Preview Content */,
@@ -108,7 +120,6 @@
 		F4FA34FD260F9B2D00D3F475 /* SnapView */ = {
 			isa = PBXGroup;
 			children = (
-				F4D74E762610524000DEFCC8 /* Guide */,
 				F4FA3500260F9B6900D3F475 /* SnapView.swift */,
 				F4FA350D260FA3AD00D3F475 /* CameraView.swift */,
 				F444E5BA260FBBE0003B0C3F /* CameraModel.swift */,
@@ -212,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F444E5C7260FEED1003B0C3F /* UIImage Extension.swift in Sources */,
+				F4D74E8D2610851500DEFCC8 /* FoodList.swift in Sources */,
 				F4D74E7D26106E1B00DEFCC8 /* ConfirmationView.swift in Sources */,
 				F4FA350E260FA3AD00D3F475 /* CameraView.swift in Sources */,
 				F4FA3506260F9E3B00D3F475 /* DonateView.swift in Sources */,

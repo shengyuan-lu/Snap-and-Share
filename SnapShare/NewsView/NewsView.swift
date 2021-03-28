@@ -3,6 +3,7 @@ import SwiftUI
 struct NewsView: View {
     
     var body: some View {
+        
         NavigationView {
             Text("NewsView")
                 .navigationTitle("🚨 Get Involved")
