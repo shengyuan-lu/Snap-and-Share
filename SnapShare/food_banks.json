@@ -2,26 +2,32 @@
    "results":[
       {
          "title":"Second Harvest Food Bank of Orange County: Home",
+         "image":"second-harvest"
          "link":"https://www.feedoc.org/",
          "description":"Second Harvest Food Bank brings nourishment and hope to hungry people throughout Orange County. Every $1 help provides at least 3 meals."
+         
       },
       {
          "title":"Food Banks - Orange County, California",
+         "image":"oc-fb"
          "link":"https://www.ocgov.com/about/emergency/assistance/food",
          "description":"Second Harvest Food Bank of Orange County ... Community Action Partnership of Orange County Food Bank 11870 Monarch St. Garden Grove, CA 92841"
       },
       {
-         "title":"OC Food Bank | Community Action Partnership of Orange ...",
+         "title":"OC Food Bank | Community Action Partnership of Orange",
+         "image":"second-harvest"
          "link":"https://www.capoc.org/oc-food-bank/",
          "description":"The OC Food Bank, a program of Community Action Partnership of Orange County, unites communities to end hunger and malnutrition by partnering with more\\xa0..."
       },
       {
          "title":"Second Harvest Food Bank of Orange County | Feeding America",
+         "image":"second-harvest"
          "link":"https://www.feedingamerica.org/find-your-local-foodbank/second-harvest-food-bank-of-orange-county",
          "description":"Second Harvest Food Bank brings nourishment and hope to 301000 hungry people throughout Orange County."
       },
       {
          "title":"THE BEST 10 Food Banks in Orange County, CA - Last ... - Yelp",
+         "image":"second-harvest"
          "link":"https://www.yelp.com/search?cflt=foodbanks&find_loc=orange+county%2C+CA",
          "description":"The Best 10 Food Banks in Orange County, CA · OC Music & Dance · Second Harvest Food Bank of Orange County · Orange County Food Bank · The Incredible\\xa0..."
       }
