@@ -10,7 +10,6 @@ struct MainView: View {
         TabView {
             SnapView()
                 .tabItem {
-                    
                     Label("Snap & Give", image: "love-heart-hands-hold-1")
                 }
             

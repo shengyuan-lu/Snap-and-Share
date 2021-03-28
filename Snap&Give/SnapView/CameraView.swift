@@ -4,7 +4,7 @@ import AVFoundation
 
 struct CameraView: View {
     
-    @StateObject var cameraModel = CameraModel()
+    @ObservedObject var cameraModel:CameraModel
     
     @State private var cornerRadius:CGFloat = 20
     

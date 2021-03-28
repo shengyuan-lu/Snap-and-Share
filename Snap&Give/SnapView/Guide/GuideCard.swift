@@ -2,12 +2,14 @@ import SwiftUI
 
 struct GuideCard: View {
     
+    @Binding var selection:Int
+    
     let cornerRadius:CGFloat = 10
     let gReaderHeight:CGFloat = 120
     
     var body: some View {
         
-        TabView {
+        TabView(selection: $selection) {
             GeometryReader(content: { geometry in
                 
                 ZStack {
@@ -58,6 +60,7 @@ struct GuideCard: View {
             })
             .frame(height: gReaderHeight)
             .padding(5)
+            .tag(0)
             
             GeometryReader(content: { geometry in
                 
@@ -109,6 +112,7 @@ struct GuideCard: View {
             })
             .frame(height: gReaderHeight)
             .padding(5)
+            .tag(1)
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
         
@@ -118,6 +122,6 @@ struct GuideCard: View {
 
 struct GuideCard_Previews: PreviewProvider {
     static var previews: some View {
-        GuideCard()
+        GuideCard(selection: .constant(0))
     }
 }

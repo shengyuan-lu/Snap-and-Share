@@ -125,7 +125,6 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
         
         // Save Image
         self.imageToSave = croppedImage
-        UIImageWriteToSavedPhotosAlbum(croppedImage!, nil, nil, nil)
     }
     
 }
