@@ -20,12 +20,12 @@ struct FoodBankDetail: View {
                         .fontWeight(.bold)
                     
                     Divider()
-                
+                    
                     Image(foodBank.image)
                         .resizable()
                         .scaledToFit()
                         .clipShape(RoundedRectangle(cornerRadius: 10))
-        
+                    
                     
                     HStack {
                         Text("Items In Need")
@@ -55,7 +55,7 @@ struct FoodBankDetail: View {
                             
                             Spacer()
                         }
-
+                        
                         
                     }
                     
@@ -74,15 +74,8 @@ struct FoodBankDetail: View {
                     
                 }
                 .padding()
-                
-                VStack(spacing: 10) {
-                    
-
-
-                }
-                .padding([.horizontal], 20)
-            
-                Spacer()
+                .navigationTitle("🌟 A Perfect Place To Donate!")
+                .navigationBarTitleDisplayMode(.inline)
                 
             }
             

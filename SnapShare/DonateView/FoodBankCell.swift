@@ -12,9 +12,6 @@ struct FoodBankCell: View {
             
             ZStack {
                 
-                RoundedRectangle(cornerRadius: cornerRadius + 5)
-                    .foregroundColor(Color("guideCardBG"))
-                
                 HStack {
                     
                        Image(foodBank.image)
@@ -25,7 +22,7 @@ struct FoodBankCell: View {
                     
                     VStack(alignment: .leading) {
                         
-                        Text(foodBank.item)
+                        Text("Need: \(foodBank.item)")
                             .foregroundColor(.green)
                             .font(.title3)
                             .fontWeight(.bold)
@@ -41,7 +38,7 @@ struct FoodBankCell: View {
                         Spacer()
                         
                         Text(foodBank.description)
-                            .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
+                            .lineLimit(3)
                             .font(.body)
                             .foregroundColor(.secondary)
                     }
