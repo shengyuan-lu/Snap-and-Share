@@ -10,9 +10,9 @@ struct CameraView: View {
     
     @State private var object:String = ""
     
-    @State private var MLModel = MobileNetV2()
+    @State private var MLModel = Food101()
     
-    let mlImageSize = CGSize(width: 224, height: 224)
+    let mlImageSize = CGSize(width: 299, height: 299)
     
     @State private var classificationLabel:String = ""
     
@@ -132,7 +132,7 @@ struct CameraView: View {
                 RoundedRectangle(cornerRadius: self.cornerRadius)
                     .stroke(Color.green, lineWidth: 10)
                     .frame(width: UIScreen.main.bounds.size.width/1.5, height: UIScreen.main.bounds.size.width/1.5, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .offset(y: -10.0)
+                    .offset(y: 10)
                     .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                 
                 Text(self.classificationLabel)

@@ -46,7 +46,7 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
         do {
             self.session.beginConfiguration()
             
-            let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back)
+            let device = AVCaptureDevice.default(.builtInTelephotoCamera, for: .video, position: .back)
             let input = try AVCaptureDeviceInput(device: device!)
             
             if self.session.canAddInput(input) {
@@ -121,9 +121,38 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
         
         self.isTaken = true
         
+        let croppedImage = cropImageToSquare(image: capturedImage)
+        
         // Save Image
-        self.imageToSave = capturedImage
-        print(imageToSave!)
+        self.imageToSave = croppedImage
+        UIImageWriteToSavedPhotosAlbum(croppedImage!, nil, nil, nil)
     }
     
+}
+
+func cropImageToSquare(image: UIImage) -> UIImage? {
+    var imageHeight = image.size.height
+    var imageWidth = image.size.width
+
+    if imageHeight > imageWidth {
+        imageHeight = imageWidth
+    }
+    else {
+        imageWidth = imageHeight
+    }
+
+    let size = CGSize(width: imageWidth/1.5, height: imageWidth/1.5)
+
+    let refWidth: CGFloat = CGFloat(image.cgImage!.width)
+    let refHeight: CGFloat = CGFloat(image.cgImage!.height)
+
+    let x = (refWidth - size.width) / 2
+    let y = (refHeight - size.height) / 2
+
+    let cropRect = CGRect(x: x-150, y: y, width: size.height, height: size.width)
+    if let imageRef = image.cgImage!.cropping(to: cropRect) {
+        return UIImage(cgImage: imageRef, scale: 0, orientation: image.imageOrientation)
+    }
+
+    return nil
 }

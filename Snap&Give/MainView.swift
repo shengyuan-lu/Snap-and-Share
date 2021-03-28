@@ -11,12 +11,12 @@ struct MainView: View {
             SnapView()
                 .tabItem {
                     
-                    Label("Snap", image: "vegetables-plate")
+                    Label("Snap & Give", image: "love-heart-hands-hold-1")
                 }
             
             DonateView()
                 .tabItem {
-                    Label("Give", image: "love-heart-hands-hold-1")
+                    Label("Food Banks", image: "vegetables-plate")
                 }
             
             NewsView()
