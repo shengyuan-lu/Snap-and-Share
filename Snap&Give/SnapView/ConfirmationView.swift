@@ -4,7 +4,7 @@ struct ConfirmationView: View {
     
     let image:UIImage
     let itemName:String
-    let confidenceLevel:String
+    let confidenceLevel:Double
     
     @Environment(\.presentationMode) var presentationMode
     
@@ -22,11 +22,11 @@ struct ConfirmationView: View {
                 
                 
                 VStack(alignment: .center, spacing: 10) {
-                    Text("Item name: \(itemName)")
+                    Text("Food Name: \(itemName.uppercased())")
                         .font(.title)
                         .fontWeight(.bold)
                     
-                    Text("Confidence level: \(confidenceLevel)")
+                    Text("Confidence Level: \(confidenceLevel)")
                         .font(.body)
                 }
                 
@@ -74,6 +74,6 @@ struct ConfirmationView: View {
 
 struct ConfirmationView_Previews: PreviewProvider {
     static var previews: some View {
-        ConfirmationView(image: UIImage(), itemName: "donut", confidenceLevel: "0.555")
+        ConfirmationView(image: UIImage(), itemName: "donut", confidenceLevel: 0.555)
     }
 }

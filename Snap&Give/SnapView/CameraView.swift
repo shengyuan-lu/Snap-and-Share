@@ -8,13 +8,14 @@ struct CameraView: View {
     
     @State private var cornerRadius:CGFloat = 20
     
-    @State private var object:String = ""
-    
     @State private var MLModel = Food101()
     
     let mlImageSize = CGSize(width: 299, height: 299)
     
-    @State private var classificationLabel:String = ""
+    @State private var classificationLabel: String = ""
+    @State private var confidenceLevel: Double = 0.0
+    
+    @State private var presentConfirmation: Bool = false
     
     var body: some View{
         
@@ -31,6 +32,7 @@ struct CameraView: View {
                         Spacer()
                         
                         HStack {
+                            
                             // Recognize Button
                             Button(
                                 action: {
@@ -53,8 +55,12 @@ struct CameraView: View {
                                         DispatchQueue.main.async {
                                             if let output = output {
                                                 self.classificationLabel = output.classLabel
+                                                self.confidenceLevel = output.foodConfidence[classificationLabel]!
+                                                
                                             }
                                         }
+                                        
+                                        presentConfirmation = true
                                     }
                                 },
                                 label: {
@@ -75,12 +81,13 @@ struct CameraView: View {
                                     
                                 })
                                 .padding(.horizontal)
+                                .sheet(isPresented: $presentConfirmation, content: {
+                                    ConfirmationView(image: cameraModel.imageToSave!, itemName: self.classificationLabel, confidenceLevel: self.confidenceLevel)
+                                })
                             
                             // Retake Button
                             Button(action: {
-                                cameraModel.retake()
-                                
-                                self.classificationLabel = ""
+                                self.reset()
                             },
                             label: {
                                 Image(systemName: "arrow.counterclockwise.circle.fill")
@@ -93,8 +100,6 @@ struct CameraView: View {
                         }
                         
                     }
-                    
-                    
                     
                     
                 } else {
@@ -128,22 +133,21 @@ struct CameraView: View {
                 .frame(width: UIScreen.main.bounds.size.width/1.5, height: UIScreen.main.bounds.size.width/1.5, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .offset(y: 20)
                 .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-            
-            Text(self.classificationLabel)
-                .fontWeight(.bold)
-                .font(.title)
-                .foregroundColor(.white)
-                .offset(y: 20)
-                .padding()
         }
-        
         .onAppear(perform: {
             cameraModel.check()
         })
         .alert(isPresented: $cameraModel.alert) {
             Alert(title: Text("Please Enable Camera Access"))
         }
+
     }
     
+    func reset() {
+        self.cameraModel.retake()
+        
+        self.classificationLabel = ""
+        self.confidenceLevel = 0.0
+    }
     
 }
