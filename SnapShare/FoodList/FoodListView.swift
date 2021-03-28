@@ -39,23 +39,24 @@ struct FoodListView: View {
                 
                 VStack(spacing: 10) {
                     
-                    // Continue
-                    Button(action: {
+                    if foodList.foodDict.count != 0 {
                         
-                        
-                        
-                    }, label: {
-                        Text("Find me a Food Bank to Donate 🥦")
-                            .bold()
-                            .lineLimit(1)
-                            .minimumScaleFactor(0.1)
-                            .frame(width: UIScreen.main.bounds.width/1.5, alignment: .center)
-                            .foregroundColor(.white)
-                            .padding()
-                            .background(Color.green)
-                            .cornerRadius(8)
-                        
-                    })
+                        NavigationLink(
+                            destination: FoodBankDetail(foodBank: foodBankList[1]),
+                            
+                            label: {
+                                Text("Find me a Food Bank to Donate 🥦")
+                                    .bold()
+                                    .lineLimit(1)
+                                    .minimumScaleFactor(0.1)
+                                    .frame(width: UIScreen.main.bounds.width/1.5, alignment: .center)
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .background(Color.green)
+                                    .cornerRadius(8)
+                            })
+                    
+                    }
                 }
                 .padding(.top, 30)
                 .padding(.bottom, 20)
@@ -63,7 +64,7 @@ struct FoodListView: View {
             }
             .navigationTitle("My Donation List")
             .navigationBarTitleDisplayMode(.inline)
-
+            
         }
     }
 }
