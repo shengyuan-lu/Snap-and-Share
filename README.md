@@ -1,10 +1,10 @@
 # SnapShare
 <img src="https://i.imgur.com/2qIlLVe.png" width=750 />
 
-<img src="https://i.imgur.com/OL0sAK0.png" width=750 />
-
 ## Inspiration
 SnapShare took its inspirations from a popular social media application: SnapChat, which facilitates instant visual communications through photos taken by our smartphones. As an app for social good, SnapShare makes it more convenient for people to donate their food to lower-income people via food banks or shelters. We believe that widening the channel for assisting those who are in need is crucial especially during a pandemic when the unemployment rate soars around the world. We want to offer an integrated system for people to document what they can offer as well as to allocate collective resources to people whose lives might depend on these sustenance in an efficient manner.
+
+<img src="https://i.imgur.com/OL0sAK0.png" width=750 />
 
 ## What it does
 There are primarily two major interfaces in the app: the snap interface and the share interface. The snap interface allows the users to take photos of their surplus food that subsequently forms a list of supplies that they desire to donate to local charities. The share interface would push recommendations to the users regarding nearby donation locations to facilitate the donation process. In our camera interface,  a CoreML machine learning model by Philip Gaberial is integrated with the user camera. The neural network classifier identifies the object by receiving a buffer image, then outputting the prediction combined with confidence level. Finally, the result is added to your donation list. In the sharing interface, you may choose to donate to the optimized donation location based using Google Search API. 
