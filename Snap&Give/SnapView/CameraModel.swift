@@ -12,7 +12,7 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
     @Published var output = AVCapturePhotoOutput()
     @Published var preview: AVCaptureVideoPreviewLayer!
     
-    @Published var imageToSave:UIImage?
+    @Published var imageToSave: UIImage?
     @Published var isRecognized = false
     
     func check() {
@@ -21,6 +21,7 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
         
         case .authorized:
             setUp()
+            
             return
             
         case .notDetermined:
@@ -32,6 +33,7 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
             
         case .denied:
             self.alert.toggle()
+            
             return
             
         default:
@@ -67,33 +69,31 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
         
         self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
         
-        DispatchQueue.global(qos: .background).async {
-            
-            self.session.stopRunning()
-            
-            DispatchQueue.main.async {
-                withAnimation{
-                    self.isTaken.toggle()
-                }
+        
+        self.session.stopRunning()
+        
+        DispatchQueue.main.async {
+            withAnimation{
+                self.isTaken.toggle()
             }
         }
+        
     }
     
     func retake() {
         
-        DispatchQueue.global(qos: .background).async {
+        
+        self.session.startRunning()
+        
+        DispatchQueue.main.async {
             
-            self.session.startRunning()
-            
-            DispatchQueue.main.async {
-                
-                withAnimation {
-                    self.isTaken.toggle()
-                }
-                
-                self.imageToSave = nil
+            withAnimation {
+                self.isTaken.toggle()
             }
+            
+            self.imageToSave = nil
         }
+        
     }
     
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
@@ -116,10 +116,9 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
             return
         }
         
+        // Save Image
         self.imageToSave = capturedImage
-        print(capturedImage)
-        
-        UIImageWriteToSavedPhotosAlbum(capturedImage, nil, nil, nil)
+        print(imageToSave!)
     }
     
 }

@@ -8,6 +8,12 @@ struct CameraView: View {
     
     @State private var cornerRadius:CGFloat = 20
     
+    @State private var object:String = ""
+    
+    @State private var MLModel = MobileNetV2()
+    
+    @State private var classificationLabel:String = ""
+    
     var body: some View{
         
         ZStack {
@@ -46,6 +52,20 @@ struct CameraView: View {
                         // Recognize Button
                         Button(
                             action: {
+                                
+                                let image = cameraModel.imageToSave
+                                
+                                let resizedImage = image?.resizeTo(size: CGSize(width: 224, height: 224))
+                                
+                                let buffer = resizedImage?.toBuffer()
+                            
+                                let output = try? MLModel.prediction(image: buffer!)
+                                
+                                if let output = output {
+                                    self.classificationLabel = output.classLabel
+                                    
+                                    print(self.classificationLabel)
+                                }
 
                                 
                             },
