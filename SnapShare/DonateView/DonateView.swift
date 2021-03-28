@@ -5,9 +5,16 @@ struct DonateView: View {
     var body: some View {
         
         NavigationView {
-            Text("DonateView")
-                .navigationTitle("🥬 Food Banks")
-                .navigationBarTitleDisplayMode(.large)
+            List {
+                ForEach(foodBankList, id: \.self) { foodbank in
+                    NavigationLink(
+                        destination: FoodBankDetail(foodBank: foodbank),
+                        label: {
+                            FoodBankCell(foodBank: foodbank)
+                        })
+                }
+            }
+            .navigationTitle("🥬 Food Banks")
         }
 
         

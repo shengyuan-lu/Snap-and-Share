@@ -11,7 +11,10 @@
 		F4233440261089EA001B7D55 /* FoodListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F423343F261089EA001B7D55 /* FoodListView.swift */; };
 		F4233446261095F4001B7D55 /* food_banks.json in Resources */ = {isa = PBXBuildFile; fileRef = F4233445261095F4001B7D55 /* food_banks.json */; };
 		F423344A2610A0A2001B7D55 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F42334492610A0A2001B7D55 /* Launch Screen.storyboard */; };
-		F42334502610A277001B7D55 /* FoodBankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F423344F2610A277001B7D55 /* FoodBankCell.swift */; };
+		F42334502610A277001B7D55 /* FoodBankDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F423344F2610A277001B7D55 /* FoodBankDetail.swift */; };
+		F42334542610A923001B7D55 /* FoodBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42334532610A923001B7D55 /* FoodBank.swift */; };
+		F43A8D1B2610B37300DD1DDB /* SettingsRowTypeLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43A8D1A2610B37300DD1DDB /* SettingsRowTypeLink.swift */; };
+		F43A8D202610B97B00DD1DDB /* FoodBankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43A8D1F2610B97B00DD1DDB /* FoodBankCell.swift */; };
 		F444E5BB260FBBE0003B0C3F /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E5BA260FBBE0003B0C3F /* CameraModel.swift */; };
 		F444E5BF260FBC83003B0C3F /* CameraLiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E5BE260FBC83003B0C3F /* CameraLiveView.swift */; };
 		F444E5C7260FEED1003B0C3F /* UIImage Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E5C6260FEED1003B0C3F /* UIImage Extension.swift */; };
@@ -34,7 +37,10 @@
 		F423343F261089EA001B7D55 /* FoodListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListView.swift; sourceTree = "<group>"; };
 		F4233445261095F4001B7D55 /* food_banks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = food_banks.json; sourceTree = "<group>"; };
 		F42334492610A0A2001B7D55 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		F423344F2610A277001B7D55 /* FoodBankCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodBankCell.swift; sourceTree = "<group>"; };
+		F423344F2610A277001B7D55 /* FoodBankDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodBankDetail.swift; sourceTree = "<group>"; };
+		F42334532610A923001B7D55 /* FoodBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodBank.swift; sourceTree = "<group>"; };
+		F43A8D1A2610B37300DD1DDB /* SettingsRowTypeLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowTypeLink.swift; sourceTree = "<group>"; };
+		F43A8D1F2610B97B00DD1DDB /* FoodBankCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodBankCell.swift; sourceTree = "<group>"; };
 		F444E5BA260FBBE0003B0C3F /* CameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
 		F444E5BE260FBC83003B0C3F /* CameraLiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraLiveView.swift; sourceTree = "<group>"; };
 		F444E5C6260FEED1003B0C3F /* UIImage Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage Extension.swift"; sourceTree = "<group>"; };
@@ -87,6 +93,7 @@
 			children = (
 				F452DB9D261027C5004E77DC /* Food101.mlmodel */,
 				F4D74E8C2610851500DEFCC8 /* FoodList.swift */,
+				F42334532610A923001B7D55 /* FoodBank.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -152,7 +159,9 @@
 			isa = PBXGroup;
 			children = (
 				F4FA3505260F9E3B00D3F475 /* DonateView.swift */,
-				F423344F2610A277001B7D55 /* FoodBankCell.swift */,
+				F43A8D1F2610B97B00DD1DDB /* FoodBankCell.swift */,
+				F423344F2610A277001B7D55 /* FoodBankDetail.swift */,
+				F43A8D1A2610B37300DD1DDB /* SettingsRowTypeLink.swift */,
 			);
 			path = DonateView;
 			sourceTree = "<group>";
@@ -244,17 +253,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F42334542610A923001B7D55 /* FoodBank.swift in Sources */,
 				F444E5C7260FEED1003B0C3F /* UIImage Extension.swift in Sources */,
-				F42334502610A277001B7D55 /* FoodBankCell.swift in Sources */,
+				F42334502610A277001B7D55 /* FoodBankDetail.swift in Sources */,
 				F4D74E8D2610851500DEFCC8 /* FoodList.swift in Sources */,
 				F4D74E7D26106E1B00DEFCC8 /* ConfirmationView.swift in Sources */,
 				F4FA350E260FA3AD00D3F475 /* CameraView.swift in Sources */,
+				F43A8D202610B97B00DD1DDB /* FoodBankCell.swift in Sources */,
 				F4FA3506260F9E3B00D3F475 /* DonateView.swift in Sources */,
 				F4FA34EC260F97C900D3F475 /* MainView.swift in Sources */,
 				F4FA3509260F9FC500D3F475 /* NewsView.swift in Sources */,
 				F4FA3501260F9B6900D3F475 /* SnapView.swift in Sources */,
 				F4D74E792610525300DEFCC8 /* GuideCard.swift in Sources */,
 				F444E5BF260FBC83003B0C3F /* CameraLiveView.swift in Sources */,
+				F43A8D1B2610B37300DD1DDB /* SettingsRowTypeLink.swift in Sources */,
 				F444E5BB260FBBE0003B0C3F /* CameraModel.swift in Sources */,
 				F452DB9E261027C5004E77DC /* Food101.mlmodel in Sources */,
 				F4233440261089EA001B7D55 /* FoodListView.swift in Sources */,
