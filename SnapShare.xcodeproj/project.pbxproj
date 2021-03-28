@@ -14,7 +14,7 @@
 		F452DB9E261027C5004E77DC /* Food101.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F452DB9D261027C5004E77DC /* Food101.mlmodel */; };
 		F4D74E792610525300DEFCC8 /* GuideCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D74E782610525300DEFCC8 /* GuideCard.swift */; };
 		F4D74E7D26106E1B00DEFCC8 /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D74E7C26106E1B00DEFCC8 /* ConfirmationView.swift */; };
-		F4FA34EA260F97C900D3F475 /* Snap_GiveApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA34E9260F97C900D3F475 /* Snap_GiveApp.swift */; };
+		F4FA34EA260F97C900D3F475 /* Snap_ShareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA34E9260F97C900D3F475 /* Snap_ShareApp.swift */; };
 		F4FA34EC260F97C900D3F475 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA34EB260F97C900D3F475 /* MainView.swift */; };
 		F4FA34EE260F97CB00D3F475 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4FA34ED260F97CB00D3F475 /* Assets.xcassets */; };
 		F4FA34F1260F97CB00D3F475 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4FA34F0260F97CB00D3F475 /* Preview Assets.xcassets */; };
@@ -32,8 +32,8 @@
 		F452DB9D261027C5004E77DC /* Food101.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Food101.mlmodel; sourceTree = "<group>"; };
 		F4D74E782610525300DEFCC8 /* GuideCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideCard.swift; sourceTree = "<group>"; };
 		F4D74E7C26106E1B00DEFCC8 /* ConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
-		F4FA34E6260F97C900D3F475 /* Snap&Give.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Snap&Give.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F4FA34E9260F97C900D3F475 /* Snap_GiveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snap_GiveApp.swift; sourceTree = "<group>"; };
+		F4FA34E6260F97C900D3F475 /* SnapShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4FA34E9260F97C900D3F475 /* Snap_ShareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snap_ShareApp.swift; sourceTree = "<group>"; };
 		F4FA34EB260F97C900D3F475 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		F4FA34ED260F97CB00D3F475 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4FA34F0260F97CB00D3F475 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -66,7 +66,7 @@
 		F4FA34DD260F97C900D3F475 = {
 			isa = PBXGroup;
 			children = (
-				F4FA34E8260F97C900D3F475 /* Snap&Give */,
+				F4FA34E8260F97C900D3F475 /* SnapShare */,
 				F4FA34E7260F97C900D3F475 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -74,15 +74,15 @@
 		F4FA34E7260F97C900D3F475 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F4FA34E6260F97C900D3F475 /* Snap&Give.app */,
+				F4FA34E6260F97C900D3F475 /* SnapShare.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F4FA34E8260F97C900D3F475 /* Snap&Give */ = {
+		F4FA34E8260F97C900D3F475 /* SnapShare */ = {
 			isa = PBXGroup;
 			children = (
-				F4FA34E9260F97C900D3F475 /* Snap_GiveApp.swift */,
+				F4FA34E9260F97C900D3F475 /* Snap_ShareApp.swift */,
 				F4FA34EB260F97C900D3F475 /* MainView.swift */,
 				F4FA34FD260F9B2D00D3F475 /* SnapView */,
 				F4FA34FE260F9B3600D3F475 /* DonateView */,
@@ -94,7 +94,7 @@
 				F4FA34F2260F97CB00D3F475 /* Info.plist */,
 				F4FA34EF260F97CB00D3F475 /* Preview Content */,
 			);
-			path = "Snap&Give";
+			path = SnapShare;
 			sourceTree = "<group>";
 		};
 		F4FA34EF260F97CB00D3F475 /* Preview Content */ = {
@@ -145,9 +145,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F4FA34E5260F97C900D3F475 /* Snap&Give */ = {
+		F4FA34E5260F97C900D3F475 /* SnapShare */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F4FA34F5260F97CB00D3F475 /* Build configuration list for PBXNativeTarget "Snap&Give" */;
+			buildConfigurationList = F4FA34F5260F97CB00D3F475 /* Build configuration list for PBXNativeTarget "SnapShare" */;
 			buildPhases = (
 				F4FA34E2260F97C900D3F475 /* Sources */,
 				F4FA34E3260F97C900D3F475 /* Frameworks */,
@@ -157,9 +157,9 @@
 			);
 			dependencies = (
 			);
-			name = "Snap&Give";
+			name = SnapShare;
 			productName = "Snap&Give";
-			productReference = F4FA34E6260F97C900D3F475 /* Snap&Give.app */;
+			productReference = F4FA34E6260F97C900D3F475 /* SnapShare.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -176,7 +176,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F4FA34E1260F97C900D3F475 /* Build configuration list for PBXProject "Snap&Give" */;
+			buildConfigurationList = F4FA34E1260F97C900D3F475 /* Build configuration list for PBXProject "SnapShare" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -189,7 +189,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F4FA34E5260F97C900D3F475 /* Snap&Give */,
+				F4FA34E5260F97C900D3F475 /* SnapShare */,
 			);
 		};
 /* End PBXProject section */
@@ -223,7 +223,7 @@
 				F444E5BB260FBBE0003B0C3F /* CameraModel.swift in Sources */,
 				F452DB9E261027C5004E77DC /* Food101.mlmodel in Sources */,
 				F452DB92260FF972004E77DC /* MobileNetV2.mlmodel in Sources */,
-				F4FA34EA260F97C900D3F475 /* Snap_GiveApp.swift in Sources */,
+				F4FA34EA260F97C900D3F475 /* Snap_ShareApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,16 +352,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Snap&Give/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SnapShare/Preview Content\"";
 				DEVELOPMENT_TEAM = WMFKF24VVS;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Snap&Give/Info.plist";
+				INFOPLIST_FILE = SnapShare/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.shengyuanlu.Snap-Give";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shengyuanlu.SnapShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -374,16 +374,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Snap&Give/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SnapShare/Preview Content\"";
 				DEVELOPMENT_TEAM = WMFKF24VVS;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Snap&Give/Info.plist";
+				INFOPLIST_FILE = SnapShare/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.shengyuanlu.Snap-Give";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shengyuanlu.SnapShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -393,7 +393,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F4FA34E1260F97C900D3F475 /* Build configuration list for PBXProject "Snap&Give" */ = {
+		F4FA34E1260F97C900D3F475 /* Build configuration list for PBXProject "SnapShare" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F4FA34F3260F97CB00D3F475 /* Debug */,
@@ -402,7 +402,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F4FA34F5260F97CB00D3F475 /* Build configuration list for PBXNativeTarget "Snap&Give" */ = {
+		F4FA34F5260F97CB00D3F475 /* Build configuration list for PBXNativeTarget "SnapShare" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F4FA34F6260F97CB00D3F475 /* Debug */,

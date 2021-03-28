@@ -15,7 +15,7 @@ struct SnapView: View {
             
             ZStack {
                 CameraView(cameraModel: cameraModel)
-                    .navigationTitle("📸 Snap & Give")
+                    .navigationTitle("📸 Snap & Share")
                     .navigationBarTitleDisplayMode(.large)
                 
                 VStack {
