@@ -10,6 +10,7 @@
 		F423343C261089D8001B7D55 /* FoodListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F423343B261089D8001B7D55 /* FoodListCell.swift */; };
 		F4233440261089EA001B7D55 /* FoodListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F423343F261089EA001B7D55 /* FoodListView.swift */; };
 		F4233446261095F4001B7D55 /* food_banks.json in Resources */ = {isa = PBXBuildFile; fileRef = F4233445261095F4001B7D55 /* food_banks.json */; };
+		F423344A2610A0A2001B7D55 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F42334492610A0A2001B7D55 /* Launch Screen.storyboard */; };
 		F444E5BB260FBBE0003B0C3F /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E5BA260FBBE0003B0C3F /* CameraModel.swift */; };
 		F444E5BF260FBC83003B0C3F /* CameraLiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E5BE260FBC83003B0C3F /* CameraLiveView.swift */; };
 		F444E5C7260FEED1003B0C3F /* UIImage Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E5C6260FEED1003B0C3F /* UIImage Extension.swift */; };
@@ -32,6 +33,7 @@
 		F423343B261089D8001B7D55 /* FoodListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListCell.swift; sourceTree = "<group>"; };
 		F423343F261089EA001B7D55 /* FoodListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListView.swift; sourceTree = "<group>"; };
 		F4233445261095F4001B7D55 /* food_banks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = food_banks.json; sourceTree = "<group>"; };
+		F42334492610A0A2001B7D55 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		F444E5BA260FBBE0003B0C3F /* CameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
 		F444E5BE260FBC83003B0C3F /* CameraLiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraLiveView.swift; sourceTree = "<group>"; };
 		F444E5C6260FEED1003B0C3F /* UIImage Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage Extension.swift"; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				F4D74E882610843B00DEFCC8 /* Model */,
 				F4FA3504260F9BE900D3F475 /* Helper */,
 				F4233445261095F4001B7D55 /* food_banks.json */,
+				F42334492610A0A2001B7D55 /* Launch Screen.storyboard */,
 				F4FA34ED260F97CB00D3F475 /* Assets.xcassets */,
 				F4FA34F2260F97CB00D3F475 /* Info.plist */,
 				F4FA34EF260F97CB00D3F475 /* Preview Content */,
@@ -229,6 +232,7 @@
 			files = (
 				F4233446261095F4001B7D55 /* food_banks.json in Resources */,
 				F4FA34F1260F97CB00D3F475 /* Preview Assets.xcassets in Resources */,
+				F423344A2610A0A2001B7D55 /* Launch Screen.storyboard in Resources */,
 				F4FA34EE260F97CB00D3F475 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
