@@ -36,3 +36,6 @@ We learnt about integrating our camera interface with the machine learning model
 
 ## What's next for SnapShare
 In the future, we plan to bolster our backend of our app by integrating Google Cloud services with Google Search API to include more factors that the user might be interested in knowing more about when donating such as the distance between the users and the donation locations and the most up-to-date information about what they need.
+
+### Acknowledgement
+The Stanford Rejects Team would like to thank [kavsoft](https://kavsoft.dev/) for his tutorial on SwiftUI camera view integration. Additionally we would like to thank [ph1ps](https://github.com/ph1ps/Food101-CoreML) for his CoreML Food101 ML Model. Without this model the app won't exist. We are truly standing on the shoulders of giants.
