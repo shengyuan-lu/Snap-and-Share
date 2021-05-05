@@ -1,4 +1,4 @@
-# SnapShare
+# Snap & Share
 <img src="https://i.imgur.com/2qIlLVe.png" width=750 />
 
 ## Demo Video
